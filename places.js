@@ -145,7 +145,7 @@ const PLACES = [
         description: "Parc de loisirs avec manèges, jeux et espaces verts.",
         phone: "+213 45 40 11 22", address: "Route de Mazagran, Mostaganem",
         images: normalizeImages(["./images/mostaland/unnamed (3).jpg", "./images/mostaland/images.webp", "./images/mostaland/unnamed (2).jpg"]),
-        latitude: 35.960, longitude: 0.070
+        latitude: 35.9552, longitude: 0.1000
     },
 
     // ========== CULTURE ==========
