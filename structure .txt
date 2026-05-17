@@ -1,0 +1,11 @@
+MostaTrip/
+├── index.html
+├── style.css
+├── main.js
+├── places.js          ← données des lieux
+├── booking.js
+├── manifest.json
+└── images/
+    ├── icon-192.png
+    ├── icon-512.png
+    └── placeholder.jpg (image par défaut)

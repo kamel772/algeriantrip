@@ -1,0 +1,634 @@
+/* style.css – MostaTrip */
+/* ============================================
+   THÈMES – Ajoutez la classe souhaitée sur <body>
+   Exemples : <body class="theme-material">
+             <body class="theme-airbnb">
+             <body class="theme-spotify">
+   ============================================ */
+
+/* Thème par défaut (Material) */
+body {
+    --bg-body: #F8F9FA;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #1A73E8;
+    --secondary: #4285F4;
+    --accent-turquoise: #34A853;
+    --accent-corail: #EA4335;
+    --text-dark: #202124;
+    --text-light: #5F6368;
+    --border-light: #DADCE0;
+    --info: #34A853;
+}
+
+/* Thème Airbnb */
+body.theme-airbnb {
+    --bg-body: #F7F5F2;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #FF5A5F;
+    --secondary: #FC642D;
+    --accent-turquoise: #00A699;
+    --accent-corail: #FF5A5F;
+    --text-dark: #222222;
+    --text-light: #717171;
+    --border-light: #EBEBEB;
+    --info: #00A699;
+}
+
+/* Thème Uber */
+body.theme-uber {
+    --bg-body: #F8F8F8;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #000000;
+    --secondary: #333333;
+    --accent-turquoise: #1EBEA5;
+    --accent-corail: #E11900;
+    --text-dark: #191919;
+    --text-light: #6F6F6F;
+    --border-light: #E0E0E0;
+    --info: #1EBEA5;
+}
+
+/* Thème Spotify */
+body.theme-spotify {
+    --bg-body: #121212;
+    --bg-app: #1E1E1E;
+    --card-bg: #282828;
+    --primary: #1DB954;
+    --secondary: #1ED760;
+    --accent-turquoise: #1DB954;
+    --accent-corail: #FF6B6B;
+    --text-dark: #FFFFFF;
+    --text-light: #B3B3B3;
+    --border-light: #3E3E3E;
+    --info: #1DB954;
+}
+
+/* Thème Instagram */
+body.theme-instagram {
+    --bg-body: #FAFAFA;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #C13584;
+    --secondary: #E4405F;
+    --accent-turquoise: #0095F6;
+    --accent-corail: #E4405F;
+    --text-dark: #262626;
+    --text-light: #8E8E8E;
+    --border-light: #DBDBDB;
+    --info: #0095F6;
+}
+
+/* Thème Discord */
+body.theme-discord {
+    --bg-body: #1E1F22;
+    --bg-app: #2B2D31;
+    --card-bg: #383A40;
+    --primary: #5865F2;
+    --secondary: #4752C4;
+    --accent-turquoise: #57F287;
+    --accent-corail: #ED4245;
+    --text-dark: #FFFFFF;
+    --text-light: #B5BAC1;
+    --border-light: #4E5058;
+    --info: #57F287;
+}
+
+/* Thème Duolingo */
+body.theme-duolingo {
+    --bg-body: #E5F3E5;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #58CC71;
+    --secondary: #89E219;
+    --accent-turquoise: #1CB0F6;
+    --accent-corail: #FF4B4B;
+    --text-dark: #3C3C3C;
+    --text-light: #7F7F7F;
+    --border-light: #E0E5E0;
+    --info: #1CB0F6;
+}
+
+/* Thème Monzo */
+body.theme-monzo {
+    --bg-body: #F5F5F5;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #FF4D7D;
+    --secondary: #FF6B8F;
+    --accent-turquoise: #00D4B1;
+    --accent-corail: #FF4D7D;
+    --text-dark: #1A1D2B;
+    --text-light: #8A8F9E;
+    --border-light: #E6E8EC;
+    --info: #00D4B1;
+}
+
+/* Thème Chic & Plage – beige, bleu marine doux, raffinement */
+body.theme-chic-plage {
+    --bg-body: #F4EFE6;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #2C5F6E;
+    --secondary: #7C9E9E;
+    --accent-turquoise: #A8C4C4;
+    --accent-corail: #D4A373;
+    --text-dark: #3B2F2A;
+    --text-light: #8B7D72;
+    --border-light: #E6DED5;
+    --info: #7C9E9E;
+}
+
+/* Thème Vintage Côtier – tons patinés, vert d'eau, vieux rose */
+body.theme-vintage-cotier {
+    --bg-body: #F3EFE5;
+    --bg-app: #FEFCF8;
+    --card-bg: #FFFFFF;
+    --primary: #6B8C7B;
+    --secondary: #A3B5A6;
+    --accent-turquoise: #B5C9C4;
+    --accent-corail: #D9B8A4;
+    --text-dark: #4A3F35;
+    --text-light: #8F8176;
+    --border-light: #E6DFD4;
+    --info: #8CA89A;
+}
+
+/* Thème Sobre & Élégant – gris chaud, bleu poudre, minimal */
+body.theme-sobre-elegant {
+    --bg-body: #EBE9E6;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #4A5B6B;
+    --secondary: #8A9BA8;
+    --accent-turquoise: #AFC1CC;
+    --accent-corail: #C2A68D;
+    --text-dark: #2F3A40;
+    --text-light: #7D8B92;
+    --border-light: #D6D2CB;
+    --info: #8A9BA8;
+}
+
+/* Thème Boho Plage – terracotta, lin, sauge naturelle */
+body.theme-boho-plage {
+    --bg-body: #F5EFE6;
+    --bg-app: #FFFCF8;
+    --card-bg: #FFFFFF;
+    --primary: #C8785A;
+    --secondary: #E0B28A;
+    --accent-turquoise: #A8C0A3;
+    --accent-corail: #D99B6C;
+    --text-dark: #4E3E33;
+    --text-light: #9F8B7A;
+    --border-light: #EAE0D4;
+    --info: #A8C0A3;
+}
+
+/* Thème Nautique Chic – bleu marine, blanc, touche rouge brique */
+body.theme-nautique-chic {
+    --bg-body: #EFF2F5;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #1F4E6E;
+    --secondary: #3A6B8C;
+    --accent-turquoise: #7CA5B8;
+    --accent-corail: #A6584A;
+    --text-dark: #1E333B;
+    --text-light: #6F848E;
+    --border-light: #D4DCE1;
+    --info: #7CA5B8;
+}
+/* Thème Santorin – blanc, bleu électrique, chaux */
+body.theme-santorini {
+    --bg-body: #F8F6F0;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #2C7B9E;
+    --secondary: #5DA0C2;
+    --accent-turquoise: #7FC1D9;
+    --accent-corail: #E8845C;
+    --text-dark: #2C3E4E;
+    --text-light: #7A8E9E;
+    --border-light: #E2DFD7;
+    --info: #5DA0C2;
+}
+
+/* Thème Hamptons – bleu ciel, blanc cassé, bois clair */
+body.theme-hamptons {
+    --bg-body: #F5F3F0;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #4F9DA6;
+    --secondary: #7DBBC2;
+    --accent-turquoise: #B0D4D9;
+    --accent-corail: #E6A57E;
+    --text-dark: #3A4D4D;
+    --text-light: #8CA3A3;
+    --border-light: #E2DDD4;
+    --info: #7DBBC2;
+}
+
+/* Thème Polynésie – turquoise profond, sable rose, fleur de tiaré */
+body.theme-polynesie {
+    --bg-body: #FFF9F0;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #1A6F7F;
+    --secondary: #4FA3B3;
+    --accent-turquoise: #8DC9D6;
+    --accent-corail: #F4A261;
+    --text-dark: #2D4A4A;
+    --text-light: #829999;
+    --border-light: #F0E6D6;
+    --info: #4FA3B3;
+}
+
+/* Thème Capri – jaune citron, bleu italien, chaleureux */
+body.theme-capri {
+    --bg-body: #FFF7E8;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #F9A825;
+    --secondary: #FDD835;
+    --accent-turquoise: #26C6DA;
+    --accent-corail: #FF7043;
+    --text-dark: #4E3B1F;
+    --text-light: #9B8A6B;
+    --border-light: #F5E8C7;
+    --info: #26C6DA;
+}
+
+/* Thème Biarritz – art déco, marine profond, chic surf */
+body.theme-biarritz {
+    --bg-body: #F2F0EB;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #1B3B4F;
+    --secondary: #3A6B7C;
+    --accent-turquoise: #6F9EAF;
+    --accent-corail: #D66B4A;
+    --text-dark: #1F3140;
+    --text-light: #6F7F8C;
+    --border-light: #DCD6CC;
+    --info: #6F9EAF;
+}
+
+/* Thème Maldives – eau cristalline, sable blanc, luxe reposant */
+body.theme-maldives {
+    --bg-body: #E6F2F5;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #0093A5;
+    --secondary: #44B3C2;
+    --accent-turquoise: #7DCDD9;
+    --accent-corail: #FFB347;
+    --text-dark: #1E4A54;
+    --text-light: #6D8F99;
+    --border-light: #D6E5E8;
+    --info: #44B3C2;
+}
+
+/* Thème Amalfi – citron, jaune pastel, bleu doux */
+body.theme-amalfi {
+    --bg-body: #FFF9EF;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #E9B741;
+    --secondary: #F5CD7A;
+    --accent-turquoise: #6EC6C9;
+    --accent-corail: #E8836B;
+    --text-dark: #4A3B22;
+    --text-light: #9C8A6B;
+    --border-light: #F1E4CF;
+    --info: #6EC6C9;
+}
+
+/* Thème Côte Basque – vert sauge, rouge brique, terre d'ombre */
+body.theme-cote-basque {
+    --bg-body: #F4F0E6;
+    --bg-app: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --primary: #6B7B5E;
+    --secondary: #8FA07E;
+    --accent-turquoise: #B0C2A4;
+    --accent-corail: #BC6F4A;
+    --text-dark: #3D4A33;
+    --text-light: #8C9A7C;
+    --border-light: #E2DCCE;
+    --info: #8FA07E;
+}
+/* ============================================
+   RESTE DE VOTRE CSS (INCHANGÉ)
+   ============================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-body);
+    transition: background-color 0.2s, color 0.2s;
+    /* Pour une image de fond, décommentez et modifiez :
+    background-image: url('images/mon-fond.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    */
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg-app);
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* En-tête */
+.header {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: fadeInUp 0.5s ease;
+}
+.header h1 { font-size: 1.5rem; font-weight: 600; }
+.lang-selector { display: flex; gap: 6px; }
+.lang-selector button {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+.filter-toggle {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    padding: 4px 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Barre de recherche */
+.search-bar {
+    padding: 12px 16px;
+    background: var(--secondary);
+    border-bottom: 1px solid var(--border-light);
+}
+.search-bar input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    background: var(--card-bg);
+    color: var(--text-dark);
+}
+
+/* Filtres */
+.category-filters {
+    display: none;
+    overflow-x: auto;
+    padding: 12px 8px;
+    gap: 8px;
+    background: var(--secondary);
+    border-bottom: 1px solid var(--border-light);
+    white-space: nowrap;
+}
+.category-filters.visible { display: flex; }
+.cat-btn {
+    background: var(--card-bg);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+.cat-btn.active {
+    background: var(--accent-corail);
+    color: white;
+}
+
+/* Liste des lieux */
+.places-list {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skeleton-card {
+    height: 280px;
+    background: linear-gradient(90deg, var(--border-light) 25%, #e0e0e0 50%, var(--border-light) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 16px;
+}
+
+.place-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    animation: fadeInUp 0.5s ease both;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+.place-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.place-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: var(--border-light);
+}
+.place-info {
+    padding: 14px;
+}
+.place-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+.place-category {
+    display: inline-block;
+    background: var(--secondary);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+.place-desc {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 8px 0;
+}
+.place-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.place-actions button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f0f2f5;
+    color: var(--text-dark);
+}
+.btn-primary {
+    background: var(--primary) !important;
+    color: white !important;
+}
+.btn-secondary {
+    background: var(--border-light) !important;
+    color: var(--text-dark) !important;
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+.modal[style*="display: flex"] { animation: scaleIn 0.3s ease; }
+.modal-content {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 450px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-light);
+    z-index: 10;
+}
+.detail-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+.detail-actions button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.badge {
+    background: var(--info);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Galerie */
+.gallery-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 10px 0;
+    margin: 15px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+.gallery-img {
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.detail-address {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 8px 0 0;
+}
+
+/* Formulaire réservation */
+#bookingForm input,
+#bookingForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: var(--card-bg);
+    color: var(--text-dark);
+}
+#bookingForm button {
+    margin-top: 16px;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

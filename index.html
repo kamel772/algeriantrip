@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MostaTrip • Mostaganem</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1E88E5">
+</head>
+<body class="theme-boho-plage">
+    <div class="app-container">
+        <header class="header">
+            <div class="lang-selector">
+                <button data-lang="ar">AR</button>
+                <button data-lang="fr">FR</button>
+                <button data-lang="en">EN</button>
+            </div>
+            <h1 id="appTitle">MostaTrip</h1>
+            <button class="filter-toggle" id="filterToggle">☰</button>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Rechercher un lieu...">
+        </div>
+
+        <div class="category-filters" id="categoryFilters">
+            <button class="cat-btn" data-cat="site">Sites</button>
+            <button class="cat-btn" data-cat="hebergement">Hébergements</button>
+            <button class="cat-btn" data-cat="loisirs">Loisirs</button>
+            <button class="cat-btn" data-cat="culture">Culture</button>
+            <button class="cat-btn" data-cat="artisan">Artisans</button>
+            <button class="cat-btn" data-cat="restaurant">Restaurants</button>
+            <button class="cat-btn" data-cat="administration">Administrations</button>
+            <button class="cat-btn" data-cat="services">Services</button>
+            <button class="cat-btn" data-cat="banque">Banques</button>
+        </div>
+
+        <div class="places-list" id="placesList"></div>
+
+        <div class="modal" id="detailModal">
+            <div class="modal-content">
+                <span class="close-modal" id="closeDetailModal">&times;</span>
+                <h2 id="detailName"></h2>
+                <span id="detailCategory" class="badge"></span>
+                <p id="detailDesc"></p>
+                <div id="detailAddress" class="detail-address"></div>
+                <div class="gallery-container" id="detailGallery"></div>
+                <div class="detail-actions">
+                    <button id="detailItineraire" class="btn-secondary">Itinéraire</button>
+                    <button id="detailAction" class="btn-primary">Réserver</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="bookingModal">
+            <div class="modal-content">
+                <span class="close-modal" id="closeBookingModal">&times;</span>
+                <h2>Réservation pour <span id="bookingPlaceName"></span></h2>
+                <form id="bookingForm">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
+                    <input type="tel" name="phone" placeholder="Téléphone">
+                    <input type="date" name="date">
+                    <textarea name="message" placeholder="Message (optionnel)" rows="3"></textarea>
+                    <button type="submit" class="btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="places.js"></script>
+    <script src="main.js"></script>
+    <script src="booking.js"></script>
+    <script>
+        (function() {
+            var s = document.createElement('script');
+            s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+            s.async = true;
+            document.head.appendChild(s);
+        })();
+    </script>
+</body>
+</html>

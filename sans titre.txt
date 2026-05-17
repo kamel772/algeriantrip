@@ -1,0 +1,53 @@
+35.894049
+0.047490
+
+35.934231,0.096425
+
+35.929769,0.086308
+
+AZ Hotel Zephyr Mostaganem
+AZ HOTELS Le ZEPHYR situé en plein coeur de Mostaganem, vous invite à passer des moments inoubliables entre amis ou famille
+Cet hôtel 4 étoiles dispose de chambres climatisées, dotées d'une connexion Wi-Fi gratuite et d'une salle de bains privative. L'établissement inclut une piscine extérieure et une réception ouverte 24h/24.
+35.889611,0.049891
+Adresse: Sablette section 4 propriété N° 234 commune de Mazagran, Mostaganem
+Téléphone: +213 (0) 561 65 76 26 | 561 65 76 27
+Fixe: +213 (0) 45 42 02 60
+Fax: +213 (0) 45 42 02 65
+Email: reservations.lezephyr@azhotels.d
+
+http://localhost:8080/
+
+python3 -m http.server 8000
+
+sidi mejdoub 35.9664 0.0924
+Salamandre  35.9189 0.0610
+La Salamandre est Située au bord de la Méditerranée, c'est le quartier incontournable de Mostaganem dotée d'une promenade piétone avec vue sur mer et de toutes les commodités restaurant et moyens de transport.", 
+
+stidia 35.8340 -0.0132
+
+sonagther 36.0074  0.1210
+
+
+La Plage Sakhra (ou Sokhra) est considérée comme l'une des plus belles plages de la région de Mostaganem. Située à environ 35 km à l'est du centre-ville, dans la commune de Ben Abdelmalek Ramdane (ex-Ouillis), elle offre un cadre naturel sauvage bordé de forêts. 
+36.05223 0.1531
+
+cap ivi 36.1113 0.2191
+
+clovis 
+Située dans la commune de Ben Abdelmalek Ramdane, à environ 30 km à l'est de Mostaganem Une plage sauvage bordée d'une forêt de pins et de genévriers, offrant ombre et fraîcheur 
+36.1299 0.2763
+
+hadjadj plage 
+La plage de Hadjadj (anciennement connue sous le nom de Bosquet) est l'une des destinations balnéaires les plus prisées de la wilaya de Mostaganem. Elle se situe à environ 40 km à l'est du chef-lieu de la wilaya
+36.1437 0.3022
+
+
+keflesfer 
+La plage de Kef Lasfar est un site naturel remarquable situé dans la commune de Sidi Lakhdar, à environ 50 km à l'est de Mostaganem. C'est une destination prisée pour son aspect sauvage, mêlant falaises imposantes et eaux cristallines
+36.1870 0.3408
+
+Petit port
+La Plage du Petit Port est située dans la commune de Sidi Lakhdar, à environ 60 km à l'est du chef-lieu de la wilaya, elle est réputée pour son mélange unique de port de pêche traditionnel et de station balnéaire familiale
+36.2101 0.3944
+
+wilaya. 35.9257 0'08191
