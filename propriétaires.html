@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityTrip – Ajouter une location saisonnière</title>
+    <style>
+        :root {
+            --bg-body: #F5EFE6;
+            --bg-card: #FFFFFF;
+            --primary: #C8785A;
+            --secondary: #E0B28A;
+            --text-dark: #4E3E33;
+            --text-light: #9F8B7A;
+            --border-light: #EAE0D4;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg-body); color: var(--text-dark); padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: var(--bg-card); border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { color: var(--primary); margin-bottom: 10px; font-size: 1.8rem; }
+        p { color: var(--text-light); margin-bottom: 20px; }
+        label { display: block; margin-top: 15px; font-weight: 600; color: var(--text-dark); }
+        input, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid var(--border-light); border-radius: 12px; font-size: 1rem; background: var(--bg-body); }
+        button { background: var(--primary); color: white; padding: 14px 30px; border: none; border-radius: 50px; font-weight: bold; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 20px; }
+        .footer { text-align: center; margin-top: 20px; color: var(--text-light); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Ajouter une location saisonnière</h1>
+        <p>Vous louez votre bien pendant la saison estivale ? Remplissez ce formulaire pour apparaître gratuitement sur le guide CityTrip de votre wilaya.</p>
+        <form action="https://formspree.io/f/XXXXXXXXXX" method="POST">
+            <label>Votre nom complet</label>
+            <input type="text" name="nom" required>
+            <label>Ville / Wilaya</label>
+            <input type="text" name="ville" required>
+            <label>Adresse du bien</label>
+            <input type="text" name="adresse" required>
+            <label>Téléphone</label>
+            <input type="tel" name="telephone" required>
+            <label>Email</label>
+            <input type="email" name="email">
+            <label>Période de disponibilité</label>
+            <input type="text" name="periode" placeholder="Ex : juillet-août 2025">
+            <label>Description (capacité, équipements, prix...)</label>
+            <textarea name="description" rows="4"></textarea>
+            <label>Photos (vous pouvez les envoyer par WhatsApp après)</label>
+            <input type="text" name="photos" placeholder="Lien Google Drive ou indiquez 'WhatsApp'">
+            <button type="submit">Envoyer ma demande</button>
+        </form>
+    </div>
+    <div class="footer">
+        <p>CityTrip – Un projet de BENAICHA KAMEL | <a href="index.html">Retour à l'accueil</a></p>
+    </div>
+</body>
+</html>
