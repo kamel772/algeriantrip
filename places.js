@@ -31,7 +31,7 @@ const PLACES = [
         description: "Hôtel 3 étoiles avec piscine et vue mer. Situé à 5 min de la plage.",
         phone: "+213 45 22 33 44", address: "Bd du Front de Mer, Mostaganem",
         images: normalizeImages(["./images/hotelmontana/images (11).jpeg", "./images/hotelmontana/images (10).jpeg", "./images/hotelmontana/158826344.jpg"]),
-        latitude: 35.940, longitude: 0.102
+        latitude: 35.9545, longitude: 0.0950
     },
     {
         id: 18, name: "Al Mansour Palace", category: "hebergement", subcategory: "hotel",
