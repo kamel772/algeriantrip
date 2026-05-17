@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityTrip Framework – Offline Mobile Tourism Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #333; }
+
+        .hero { background: linear-gradient(135deg, #1E88E5, #1565C0); color: white; padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+        .hero a { background: #ff9800; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.2s; display: inline-block; margin: 10px; }
+        .hero a:hover { transform: scale(1.05); }
+
+        .section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .section h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #1E88E5; }
+
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .feature { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-align: center; }
+        .feature h3 { font-size: 1.3rem; margin-bottom: 10px; color: #1E88E5; }
+        .feature p { font-size: 0.95rem; color: #666; }
+
+        .steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .step { background: white; padding: 20px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-align: center; flex: 1 1 200px; }
+        .step-number { background: #1E88E5; color: white; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; }
+
+        .contact-form { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); max-width: 500px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 12px; font-size: 1rem; }
+        .contact-form button { background: #1E88E5; color: white; padding: 14px 30px; border: none; border-radius: 50px; font-weight: bold; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 10px; }
+
+        .footer { text-align: center; padding: 30px 20px; font-size: 0.9rem; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>CityTrip Framework</h1>
+        <p>Un guide touristique mobile complet pour n'importe quelle ville – sans serveur, sans connexion internet, gratuit.</p>
+        <a href="app.html" target="_blank">🎯 Voir la démo (Mostaganem)</a>
+        <a href="#contact">📧 Demander une version personnalisée</a>
+    </div>
+
+    <div class="section">
+        <h2>Pourquoi CityTrip ?</h2>
+        <div class="features">
+            <div class="feature"><h3>📴 100% Hors‑ligne</h3><p>Fonctionne sans internet une fois installé. Idéal pour les zones rurales.</p></div>
+            <div class="feature"><h3>📱 Progressive Web App</h3><p>S'installe sur l'écran d'accueil, comme une vraie app.</p></div>
+            <div class="feature"><h3>🗺️ Itinéraire instantané</h3><p>Ouvre Google Maps en un clic.</p></div>
+            <div class="feature"><h3>📸 Galerie photos</h3><p>Chaque lieu a sa galerie défilante.</p></div>
+            <div class="feature"><h3>📝 Réservation locale</h3><p>Formulaire de réservation intégré.</p></div>
+            <div class="feature"><h3>🌐 Multilingue</h3><p>Arabe, français, anglais – adaptable.</p></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Comment ça marche</h2>
+        <div class="steps">
+            <div class="step"><div class="step-number">1</div><h3>Choisissez votre ville</h3></div>
+            <div class="step"><div class="step-number">2</div><h3>Je crée le guide personnalisé</h3></div>
+            <div class="step"><div class="step-number">3</div><h3>Vous recevez un lien à partager</h3></div>
+            <div class="step"><div class="step-number">4</div><h3>Vos visiteurs l'installent en 1 clic</h3></div>
+        </div>
+    </div>
+
+    <div class="section" id="contact">
+        <h2>Contactez‑moi</h2>
+        <div class="contact-form">
+            <form action="https://formspree.io/f/XXXXXXXXXX" method="POST">
+                <input type="text" name="name" placeholder="Votre nom" required>
+                <input type="email" name="_replyto" placeholder="Votre email" required>
+                <input type="text" name="city" placeholder="Votre ville / organisation">
+                <textarea name="message" rows="4" placeholder="Décrivez votre besoin..."></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Développé avec passion par BENAICHA KAMEL • Mostaganem, Algérie</p>
+        <p>Contact : <a href="mailto:benaichakamelkat@gmail.com">benaichakamelkat@gmail.com</a></p>
+    </div>
+</body>
+</html>
