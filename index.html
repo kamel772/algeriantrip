@@ -5,32 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CityTrip Framework – Offline Mobile Tourism Guide</title>
     <style>
+        :root {
+            --bg-body: #F5EFE6;
+            --bg-card: #FFFFFF;
+            --primary: #C8785A;
+            --secondary: #E0B28A;
+            --accent-turquoise: #A8C0A3;
+            --accent-corail: #D99B6C;
+            --text-dark: #4E3E33;
+            --text-light: #9F8B7A;
+            --border-light: #EAE0D4;
+            --info: #A8C0A3;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #333; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg-body); color: var(--text-dark); }
 
-        .hero { background: linear-gradient(135deg, #1E88E5, #1565C0); color: white; padding: 60px 20px; text-align: center; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
-        .hero a { background: #ff9800; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.2s; display: inline-block; margin: 10px; }
-        .hero a:hover { transform: scale(1.05); }
+        /* Hero */
+        .hero { background: linear-gradient(135deg, var(--primary), var(--accent-corail)); color: white; padding: 80px 20px; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .hero p { font-size: 1.3rem; opacity: 0.95; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero a { background: white; color: var(--primary); padding: 16px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; margin: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .hero a:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
 
-        .section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .section h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; color: #1E88E5; }
+        /* Sections */
+        .section { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        .section h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; color: var(--primary); }
 
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .feature { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-align: center; }
-        .feature h3 { font-size: 1.3rem; margin-bottom: 10px; color: #1E88E5; }
-        .feature p { font-size: 0.95rem; color: #666; }
+        /* Features */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .feature { background: var(--bg-card); padding: 35px 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+        .feature:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+        .feature h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--primary); }
+        .feature p { font-size: 0.98rem; color: var(--text-light); line-height: 1.5; }
 
+        /* How it works */
         .steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-        .step { background: white; padding: 20px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-align: center; flex: 1 1 200px; }
-        .step-number { background: #1E88E5; color: white; width: 40px; height: 40px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; }
+        .step { background: var(--bg-card); padding: 30px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: center; flex: 1 1 200px; }
+        .step-number { background: var(--primary); color: white; width: 45px; height: 45px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.3rem; margin-bottom: 15px; }
 
-        .contact-form { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); max-width: 500px; margin: 0 auto; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 12px; font-size: 1rem; }
-        .contact-form button { background: #1E88E5; color: white; padding: 14px 30px; border: none; border-radius: 50px; font-weight: bold; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 10px; }
+        /* Contact form */
+        .contact-form { background: var(--bg-card); padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); max-width: 550px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 14px 18px; margin: 10px 0; border: 1px solid var(--border-light); border-radius: 14px; font-size: 1rem; background: var(--bg-body); color: var(--text-dark); }
+        .contact-form button { background: var(--primary); color: white; padding: 16px 35px; border: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer; width: 100%; margin-top: 15px; transition: transform 0.2s, box-shadow 0.2s; }
+        .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
 
-        .footer { text-align: center; padding: 30px 20px; font-size: 0.9rem; color: #999; }
+        /* Footer */
+        .footer { text-align: center; padding: 40px 20px; font-size: 0.95rem; color: var(--text-light); }
+        .footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -66,7 +88,7 @@
     <div class="section" id="contact">
         <h2>Contactez‑moi</h2>
         <div class="contact-form">
-            <form action="https://formspree.io/f/xwvzeavy" method="POST">
+            <form action="https://formspree.io/f/XXXXXXXXXX" method="POST">
                 <input type="text" name="name" placeholder="Votre nom" required>
                 <input type="email" name="_replyto" placeholder="Votre email" required>
                 <input type="text" name="city" placeholder="Votre ville / organisation">
@@ -77,8 +99,7 @@
     </div>
 
     <div class="footer">
-        <p>Développé avec passion par BENAICHA KAMEL • Mostaganem, Algérie</p>
-        <p>Contact : <a href="mailto:benaichakamelkat@gmail.com">benaichakamelkat@gmail.com</a></p>
+        <p>Développé avec passion par <a href="mailto:benaichakamelkat@gmail.com">BENAICHA KAMEL</a> • Mostaganem, Algérie</p>
     </div>
 </body>
 </html>
