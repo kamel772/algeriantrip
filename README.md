@@ -64,6 +64,16 @@ CityTrip is not limited to Algeria. It can be used for:
 
 Contributions are welcome! If you create a dataset for a new city, you can submit a pull request. Let’s build the world’s most accessible local guide network.
 
+## 📜 License
+
+Ce projet est sous licence Creative Commons Attribution – Pas d'Utilisation Commerciale 4.0 International (CC BY-NC 4.0).  
+Cela signifie que vous pouvez l'utiliser, le modifier et le partager librement à des fins non commerciales.  
+Pour toute utilisation commerciale, une autorisation préalable de l'auteur est nécessaire.
+
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](LICENSE)
+
+© 2026 BENAICHA KAMEL. Tous droits réservés.
+
 ## 📧 Contact
 
 **Author:** BENAICHA KAMEL  
