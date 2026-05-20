@@ -3,39 +3,38 @@
 const i18n = {
     fr: {
         title: "MostaTrip", searchPlaceholder: "Rechercher un lieu...",
-        site: "Sites", hebergement: "Hébergements", loisirs: "Loisirs",
-        culture: "Culture", artisan: "Artisans", restaurant: "Restaurants",
+        site: "Sites", hebergement: "Hébergements", artisan: "Artisans",
+        plage: "Plages", parc: "Parcs", restaurant: "Restaurants",
         administration: "Administrations", services: "Services", banque: "Banques",
-        all: "Tous", itinerary: "Itinéraire", reserve: "Réserver", order: "Commander",
-        hotel: "Hôtel", auberge: "Auberge", residence: "Résidence", particulier: "Particulier",
-        musee: "Musée", theatre: "Théâtre",
+        itinerary: "Itinéraire", reserve: "Réserver", order: "Commander",
+        guide: "Guide", vtc: "VTC",
         bookingTitle: "Réservation pour ", address: "Adresse"
     },
     ar: {
         title: "مستغانم", searchPlaceholder: "ابحث...",
-        site: "مواقع", hebergement: "إقامات", loisirs: "ترفيه",
-        culture: "ثقافة", artisan: "حرفيون", restaurant: "مطاعم",
+        site: "مواقع", hebergement: "إقامات", artisan: "حرفيون",
+        plage: "شواطئ", parc: "حدائق", restaurant: "مطاعم",
         administration: "إدارات", services: "خدمات", banque: "بنوك",
-        all: "الكل", itinerary: "مسار", reserve: "حجز", order: "طلب",
-        hotel: "فندق", auberge: "نزل", residence: "إقامة", particulier: "خاص",
-        musee: "متحف", theatre: "مسرح",
+        itinerary: "مسار", reserve: "حجز", order: "طلب",
+        guide: "مرشد", vtc: "نقل",
         bookingTitle: "حجز لـ ", address: "العنوان"
     },
     en: {
         title: "MostaTrip", searchPlaceholder: "Search...",
-        site: "Sites", hebergement: "Stays", loisirs: "Leisure",
-        culture: "Culture", artisan: "Craftsmen", restaurant: "Restaurants",
+        site: "Sites", hebergement: "Stays", artisan: "Craftsmen",
+        plage: "Beaches", parc: "Parks", restaurant: "Restaurants",
         administration: "Administrations", services: "Services", banque: "Banks",
-        all: "All", itinerary: "Directions", reserve: "Book", order: "Order",
-        hotel: "Hotel", auberge: "Inn", residence: "Residence", particulier: "Private",
-        musee: "Museum", theatre: "Theater",
+        itinerary: "Directions", reserve: "Book", order: "Order",
+        guide: "Guide", vtc: "Ride",
         bookingTitle: "Booking for ", address: "Address"
     }
 };
 
 let currentLang = 'fr';
-let currentCategory = 'all';  // Accueil : mélange aléatoire
+let currentCategory = 'all';  // accueil aléatoire
 let searchTerm = '';
+
+const PLACEHOLDER_IMG = (typeof PLACEHOLDER_IMAGE !== 'undefined') ? PLACEHOLDER_IMAGE : '';
 
 function incrementView(placeId) {
     try {
@@ -50,8 +49,7 @@ function applyLanguage(lang) {
     document.getElementById('appTitle').textContent = i18n[lang].title;
     document.getElementById('searchInput').placeholder = i18n[lang].searchPlaceholder;
     document.querySelectorAll('.cat-btn').forEach(btn => {
-        const cat = btn.dataset.cat;
-        btn.textContent = i18n[lang][cat] || cat;
+        btn.textContent = i18n[lang][btn.dataset.cat] || btn.dataset.cat;
     });
     updateActiveCategoryButton();
     renderPlaces();
@@ -93,6 +91,18 @@ function openItinerary(place) {
     window.open(url, '_blank');
 }
 
+function openGuide(place) {
+    window.open(`guide.html?lieu=${encodeURIComponent(place.name)}`, '_blank');
+}
+
+function openVTC(place) {
+    if (place.vtc) {
+        window.open(place.vtc, '_blank');
+    } else {
+        alert("Service VTC non disponible pour ce lieu.");
+    }
+}
+
 function getActionText(place) {
     if (place.category === 'hebergement') return i18n[currentLang].reserve;
     if (place.category === 'artisan') return i18n[currentLang].order;
@@ -109,8 +119,6 @@ function openAction(place) {
     }
 }
 
-const PLACEHOLDER_IMG = window.PLACEHOLDER_IMAGE || '';
-
 function renderPlaces() {
     const container = document.getElementById('placesList');
     if (!container) return;
@@ -122,14 +130,11 @@ function renderPlaces() {
     }
 
     let listToShow = [];
-
     if (currentCategory === 'all') {
-        // Accueil : mélange aléatoire de 8 à 12 lieux
         const shuffled = [...PLACES].sort(() => 0.5 - Math.random());
         const count = Math.floor(Math.random() * 5) + 8;
         listToShow = shuffled.slice(0, count);
     } else {
-        // Filtre par catégorie + recherche
         listToShow = PLACES.filter(p => {
             if (p.category !== currentCategory) return false;
             if (searchTerm && !p.name.toLowerCase().includes(searchTerm) && !(p.description||'').toLowerCase().includes(searchTerm)) return false;
@@ -144,22 +149,36 @@ function renderPlaces() {
 
     container.innerHTML = listToShow.map((place, index) => {
         const img = (place.images && place.images.length) ? place.images[0] : PLACEHOLDER_IMG;
-        let catLabel = i18n[currentLang][place.category] || place.category;
-        if (place.subcategory && i18n[currentLang][place.subcategory]) {
-            catLabel = i18n[currentLang][place.subcategory];
-        }
         return `<div class="place-card" data-id="${place.id}" style="animation-delay:${index*0.05}s">
             <img class="place-img" src="${img}" alt="${place.name}" loading="lazy" onerror="this.src='${PLACEHOLDER_IMG}'">
-            <div class="place-info"><span class="place-category">${catLabel}</span>
-            <h3 class="place-title">${place.name}</h3><p class="place-desc">${place.description||''}</p>
-            <div class="place-actions"><button class="btn-secondary btn-itinerary" data-id="${place.id}">${i18n[currentLang].itinerary}</button>
-            <button class="btn-primary btn-action" data-id="${place.id}">${getActionText(place)}</button></div></div></div>`;
+            <div class="place-info">
+                <span class="place-category">${i18n[currentLang][place.category] || place.category}</span>
+                <h3 class="place-title">${place.name}</h3>
+                <p class="place-desc">${place.description||''}</p>
+                <div class="place-actions">
+                    <button class="btn-secondary btn-itinerary" data-id="${place.id}">${i18n[currentLang].itinerary}</button>
+                    ${place.category === 'site' ? `<button class="btn-secondary btn-guide" data-id="${place.id}">${i18n[currentLang].guide}</button>` : ''}
+                    ${place.vtc ? `<button class="btn-primary btn-vtc" data-id="${place.id}">${i18n[currentLang].vtc}</button>` : ''}
+                    <button class="btn-primary btn-action" data-id="${place.id}">${getActionText(place)}</button>
+                </div>
+            </div>
+        </div>`;
     }).join('');
 
     document.querySelectorAll('.btn-itinerary').forEach(b => b.addEventListener('click', e => {
         e.stopPropagation();
         const p = PLACES.find(x => x.id === Number(b.dataset.id));
         if(p) openItinerary(p);
+    }));
+    document.querySelectorAll('.btn-guide').forEach(b => b.addEventListener('click', e => {
+        e.stopPropagation();
+        const p = PLACES.find(x => x.id === Number(b.dataset.id));
+        if(p) openGuide(p);
+    }));
+    document.querySelectorAll('.btn-vtc').forEach(b => b.addEventListener('click', e => {
+        e.stopPropagation();
+        const p = PLACES.find(x => x.id === Number(b.dataset.id));
+        if(p) openVTC(p);
     }));
     document.querySelectorAll('.btn-action').forEach(b => b.addEventListener('click', e => {
         e.stopPropagation();
@@ -174,30 +193,49 @@ function renderPlaces() {
 
 function showDetailModal(place) {
     document.getElementById('detailName').textContent = place.name;
-    let catLabel = i18n[currentLang][place.category] || place.category;
-    if (place.subcategory && i18n[currentLang][place.subcategory]) {
-        catLabel = i18n[currentLang][place.subcategory];
-    }
-    document.getElementById('detailCategory').textContent = catLabel;
+    document.getElementById('detailCategory').textContent = i18n[currentLang][place.category] || place.category;
     document.getElementById('detailDesc').textContent = place.description || '';
-    const addressEl = document.getElementById('detailAddress');
+    const ae = document.getElementById('detailAddress');
     if (place.address) {
-        addressEl.textContent = `${i18n[currentLang].address} : ${place.address}`;
-        addressEl.style.display = 'block';
+        ae.textContent = i18n[currentLang].address + ' : ' + place.address;
+        ae.style.display = 'block';
     } else {
-        addressEl.style.display = 'none';
+        ae.style.display = 'none';
     }
-    
+
     const images = place.images && place.images.length ? place.images : [PLACEHOLDER_IMG];
-    document.getElementById('detailGallery').innerHTML = images.map(src => 
-        `<img src="${src}" class="gallery-img" onerror="this.src='${PLACEHOLDER_IMG}'">`
+    document.getElementById('detailGallery').innerHTML = images.map(s =>
+        `<img src="${s}" class="gallery-img" onerror="this.src='${PLACEHOLDER_IMG}'">`
     ).join('');
-    
+
+    // Gestion des boutons du modal
     document.getElementById('detailItineraire').onclick = () => openItinerary(place);
+    const guideBtn = document.getElementById('detailGuide');
+    const vtcBtn = document.getElementById('detailVTC');
     const actionBtn = document.getElementById('detailAction');
+
+    // Bouton Guide (uniquement sites)
+    if (place.category === 'site') {
+        guideBtn.style.display = 'inline-block';
+        guideBtn.textContent = i18n[currentLang].guide;
+        guideBtn.onclick = () => openGuide(place);
+    } else {
+        guideBtn.style.display = 'none';
+    }
+
+    // Bouton VTC (si lien défini)
+    if (place.vtc) {
+        vtcBtn.style.display = 'inline-block';
+        vtcBtn.textContent = i18n[currentLang].vtc;
+        vtcBtn.onclick = () => openVTC(place);
+    } else {
+        vtcBtn.style.display = 'none';
+    }
+
+    // Bouton d'action principal (Réserver / Commander / Itinéraire)
     actionBtn.textContent = getActionText(place);
     actionBtn.onclick = () => openAction(place);
-    
+
     document.getElementById('detailModal').style.display = 'flex';
 }
 
@@ -205,11 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('closeDetailModal').addEventListener('click', () => {
         document.getElementById('detailModal').style.display = 'none';
     });
-    window.addEventListener('click', (e) => {
-        if (e.target === document.getElementById('detailModal')) {
+    window.addEventListener('click', e => {
+        if (e.target === document.getElementById('detailModal'))
             document.getElementById('detailModal').style.display = 'none';
-        }
     });
+
     applyLanguage('fr');
     updateActiveCategoryButton();
     renderPlaces();
