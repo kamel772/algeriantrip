@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityTrip – Réserver un guide officiel</title>
+    <style>
+        :root {
+            --bg-body: #F5EFE6;
+            --bg-card: #FFFFFF;
+            --primary: #C8785A;
+            --text-dark: #4E3E33;
+            --border-light: #EAE0D4;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg-body); color: var(--text-dark); padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: var(--bg-card); border-radius: 20px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h1 { color: var(--primary); margin-bottom: 10px; font-size: 1.8rem; }
+        label { display: block; margin-top: 15px; font-weight: 600; }
+        input, textarea { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid var(--border-light); border-radius: 12px; font-size: 1rem; background: var(--bg-body); }
+        button { background: var(--primary); color: white; padding: 14px 30px; border: none; border-radius: 50px; font-weight: bold; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧭 Réserver un guide officiel</h1>
+        <form action="https://formspree.io/f/XXXXXXXXXX" method="POST">
+            <label>Lieu à visiter</label>
+            <input type="text" name="lieu" id="lieu" readonly>
+            <label>Votre nom</label>
+            <input type="text" name="nom" required>
+            <label>Email</label>
+            <input type="email" name="email" required>
+            <label>Téléphone</label>
+            <input type="tel" name="telephone">
+            <label>Date souhaitée</label>
+            <input type="date" name="date">
+            <label>Message</label>
+            <textarea name="message" rows="3"></textarea>
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('lieu').value = params.get('lieu') || '';
+    </script>
+</body>
+  </html>
