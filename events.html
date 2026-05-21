@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityTrip – Événements</title>
+    <style>
+        :root {
+            --bg-body: #F5EFE6;
+            --bg-card: #FFFFFF;
+            --primary: #C8785A;
+            --text-dark: #4E3E33;
+            --border-light: #EAE0D4;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg-body); color: var(--text-dark); padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        h1 { color: var(--primary); margin-bottom: 20px; }
+        .event-card { background: var(--bg-card); border-radius: 16px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .event-card h3 { color: var(--primary); margin-bottom: 8px; }
+        .event-card p { color: #666; margin: 4px 0; }
+        label { display: block; margin-top: 15px; font-weight: 600; }
+        input, textarea, select { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid var(--border-light); border-radius: 12px; font-size: 1rem; background: #fff; }
+        button { background: var(--primary); color: white; padding: 14px 30px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Événements à venir</h1>
+        <div id="eventsList"></div>
+        
+        <h2 style="margin-top:30px; color:var(--primary);">Proposer un événement</h2>
+        <form id="eventForm">
+            <label>Titre</label>
+            <input type="text" id="eventTitle" required>
+            <label>Date</label>
+            <input type="date" id="eventDate" required>
+            <label>Lieu</label>
+            <input type="text" id="eventPlace" required>
+            <label>Description</label>
+            <textarea id="eventDesc" rows="3"></textarea>
+            <button type="submit">Soumettre</button>
+        </form>
+    </div>
+    <script>
+        function loadEvents() {
+            const events = JSON.parse(localStorage.getItem('citytrip_events') || '[]');
+            const container = document.getElementById('eventsList');
+            if (events.length === 0) {
+                container.innerHTML = '<p>Aucun événement pour le moment.</p>';
+                return;
+            }
+            container.innerHTML = events.map(e => `
+                <div class="event-card">
+                    <h3>${e.title}</h3>
+                    <p>📅 ${e.date}</p>
+                    <p>📍 ${e.place}</p>
+                    <p>${e.description || ''}</p>
+                </div>
+            `).join('');
+        }
+        
+        document.getElementById('eventForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newEvent = {
+                title: document.getElementById('eventTitle').value,
+                date: document.getElementById('eventDate').value,
+                place: document.getElementById('eventPlace').value,
+                description: document.getElementById('eventDesc').value
+            };
+            const events = JSON.parse(localStorage.getItem('citytrip_events') || '[]');
+            events.push(newEvent);
+            localStorage.setItem('citytrip_events', JSON.stringify(events));
+            loadEvents();
+            this.reset();
+            alert('Événement ajouté !');
+        });
+        
+        loadEvents();
+    </script>
+</body>
+</html>
