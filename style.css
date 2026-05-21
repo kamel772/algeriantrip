@@ -632,3 +632,149 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
+/* Lecteur audio */
+audio {
+    border-radius: 8px;
+    background: #f0e6d2;
+}
+
+/* Section histoire */
+.story-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+    margin: 15px 0;
+}
+
+/* Avis */
+.review-item {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    border: 1px solid var(--border-light);
+}
+
+/* Formulaire d'avis */
+.review-form input,
+.review-form textarea,
+.review-form select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.review-form button {
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+/* === Mode sombre automatique === */
+/* Mode sombre manuel */
+body.dark-mode {
+    --bg-body: #1a1a1a;
+    --bg-app: #2d2d2d;
+    --card-bg: #3a3a3a;
+    --text-dark: #e0e0e0;
+    --text-light: #b0b0b0;
+    --border-light: #444;
+}
+body.dark-mode .header {
+    background: #333;
+}
+body.dark-mode .search-bar input,
+body.dark-mode #bookingForm input,
+body.dark-mode #bookingForm textarea {
+    background: #3a3a3a;
+    color: #e0e0e0;
+    border-color: #555;
+}
+body.dark-mode .cat-btn {
+    background: #3a3a3a;
+    color: #e0e0e0;
+}
+body.dark-mode .cat-btn.active {
+    background: #1E88E5;
+    color: white;
+}
+body.dark-mode .place-card {
+    background: #3a3a3a;
+    border-color: #444;
+}
+body.dark-mode .place-desc {
+    color: #ccc;
+}
+body.dark-mode #weatherWidget {
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444;
+}
+}
+/* === Mode sombre manuel === */
+body.dark-mode {
+    --bg-body: #1a1a1a !important;
+    --bg-app: #2d2d2d !important;
+    --card-bg: #3a3a3a !important;
+    --text-dark: #e0e0e0 !important;
+    --text-light: #b0b0b0 !important;
+    --border-light: #444 !important;
+}
+body.dark-mode .app-container {
+    background: #2d2d2d !important;
+}
+body.dark-mode .header {
+    background: #333 !important;
+}
+body.dark-mode .search-bar {
+    background: #2d2d2d !important;
+}
+body.dark-mode .search-bar input {
+    background: #3a3a3a !important;
+    color: #e0e0e0 !important;
+    border-color: #555 !important;
+}
+body.dark-mode .cat-btn {
+    background: #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode .cat-btn.active {
+    background: #1E88E5 !important;
+    color: white !important;
+}
+body.dark-mode .place-card {
+    background: #3a3a3a !important;
+    border-color: #444 !important;
+}
+body.dark-mode .place-desc {
+    color: #ccc !important;
+}
+body.dark-mode .place-title {
+    color: #e0e0e0 !important;
+}
+body.dark-mode #weatherWidget {
+    background: #2a2a2a !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+body.dark-mode .modal-content {
+    background: #2d2d2d !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode #bookingForm input,
+body.dark-mode #bookingForm textarea {
+    background: #3a3a3a !important;
+    color: #e0e0e0 !important;
+    border-color: #555 !important;
+}
+body.dark-mode .category-filters {
+    background: #2d2d2d !important;
+}
+body.dark-mode .skeleton-card {
+    background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%) !important;
+}
