@@ -2,108 +2,133 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MostaTrip • Mostaganem</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1E88E5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityTrip Framework – Guide touristique mobile nouvelle génération</title>
+    <style>
+        :root {
+            --bg-body: #F5EFE6;
+            --bg-card: #FFFFFF;
+            --primary: #C8785A;
+            --secondary: #E0B28A;
+            --accent-turquoise: #A8C0A3;
+            --accent-corail: #D99B6C;
+            --text-dark: #4E3E33;
+            --text-light: #9F8B7A;
+            --border-light: #EAE0D4;
+            --info: #A8C0A3;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg-body); color: var(--text-dark); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, var(--primary), var(--accent-corail)); color: white; padding: 80px 20px; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .hero p { font-size: 1.3rem; opacity: 0.95; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero a { background: white; color: var(--primary); padding: 16px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; margin: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .hero a:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .hero a.secondary { background: transparent; border: 2px solid white; color: white; }
+
+        /* Sections */
+        .section { padding: 60px 0; }
+        .section h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; color: var(--primary); }
+        .section h3 { color: var(--primary); margin-bottom: 10px; }
+
+        /* Grille fonctionnalités */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .feature { background: var(--bg-card); padding: 35px 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+        .feature:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+        .feature .icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .feature h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--primary); }
+        .feature p { font-size: 0.95rem; color: var(--text-light); line-height: 1.5; }
+
+        /* Étapes */
+        .steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .step { background: var(--bg-card); padding: 30px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: center; flex: 1 1 200px; }
+        .step-number { background: var(--primary); color: white; width: 45px; height: 45px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.3rem; margin-bottom: 15px; }
+
+        /* Boutons pros */
+        .pro-buttons { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .pro-btn { background: var(--primary); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .pro-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+        /* Formulaire */
+        .contact-form { background: var(--bg-card); padding: 40px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); max-width: 550px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 14px 18px; margin: 10px 0; border: 1px solid var(--border-light); border-radius: 14px; font-size: 1rem; background: var(--bg-body); color: var(--text-dark); }
+        .contact-form button { background: var(--primary); color: white; padding: 16px 35px; border: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; cursor: pointer; width: 100%; margin-top: 15px; transition: transform 0.2s, box-shadow 0.2s; }
+        .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+
+        /* Footer */
+        .footer { text-align: center; padding: 40px 20px; font-size: 0.95rem; color: var(--text-light); }
+        .footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    </style>
 </head>
-<body class="theme-chic-plage">
-    <div class="app-container">
-        <header class="header">
-            <div class="lang-selector">
-                <button data-lang="ar">AR</button>
-                <button data-lang="fr">FR</button>
-                <button data-lang="en">EN</button>
-            </div>
-            <h1 id="appTitle">MostaTrip</h1>
-            <button id="darkModeToggle" style="background:rgba(255,255,255,0.2); border:none; color:white; font-size:1.2rem; padding:4px 10px; border-radius:30px; cursor:pointer; margin-right:6px;">🌙</button>
-            <button class="filter-toggle" id="filterToggle">☰</button>
-        </header>
-
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Rechercher un lieu...">
-        </div>
-
-        <div id="weatherWidget" style="text-align:center; padding:8px; background:#e3f2fd; font-size:0.9rem; border-bottom:1px solid #bbdefb;">
-            ☀️ Chargement météo...
-        </div>
-
-        <div id="advancedFilters" style="display:none; padding:10px 16px; background:#fafafa; border-bottom:1px solid #eee; gap:10px; overflow-x:auto;">
-            <select id="filterStars" style="padding:8px; border-radius:20px; border:1px solid #ddd;">
-                <option value="">⭐ Toutes étoiles</option>
-                <option value="5">5 étoiles</option>
-                <option value="4">4 étoiles</option>
-                <option value="3">3 étoiles</option>
-                <option value="2">2 étoiles</option>
-                <option value="1">1 étoile</option>
-            </select>
-            <select id="filterWifi" style="padding:8px; border-radius:20px; border:1px solid #ddd;">
-                <option value="">📶 Wifi</option>
-                <option value="oui">Avec Wifi</option>
-            </select>
-            <select id="filterPool" style="padding:8px; border-radius:20px; border:1px solid #ddd;">
-                <option value="">🏊 Piscine</option>
-                <option value="oui">Avec piscine</option>
-            </select>
-        </div>
-
-        <div class="category-filters" id="categoryFilters">
-            <button class="cat-btn" data-cat="site">Sites</button>
-            <button class="cat-btn" data-cat="hebergement">Hébergements</button>
-            <button class="cat-btn" data-cat="artisan">Artisans</button>
-            <button class="cat-btn" data-cat="loisirs">Loisirs</button>
-            <button class="cat-btn" data-cat="culture">Culture</button>
-            <button class="cat-btn" data-cat="nature">🌲 Nature</button>
-            <button class="cat-btn" data-cat="restaurant">Restaurants</button>
-            <button class="cat-btn" data-cat="administration">Administrations</button>
-            <button class="cat-btn" data-cat="services">Services</button>
-            <button class="cat-btn" data-cat="banque">Banques</button>
-        </div>
-
-        <div class="places-list" id="placesList"></div>
-
-        <div class="modal" id="detailModal">
-            <div class="modal-content">
-                <span class="close-modal" id="closeDetailModal">&times;</span>
-                <h2 id="detailName"></h2>
-                <span id="detailCategory" class="badge"></span>
-                <div id="detailDesc"></div>
-                <div id="detailAddress" class="detail-address"></div>
-                <div class="gallery-container" id="detailGallery"></div>
-                <div class="detail-actions">
-                    <button id="detailItineraire" class="btn-secondary">Itinéraire</button>
-                    <button id="detailGuide" class="btn-secondary" style="display:none;">Guide</button>
-                    <button id="detailVTC" class="btn-primary" style="display:none;">VTC</button>
-                    <button id="detailAction" class="btn-primary">Réserver</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="bookingModal">
-    <div class="modal-content">
-        <span class="close-modal" id="closeBookingModal">&times;</span>
-        <h2>Réservation pour <span id="bookingPlaceName"></span></h2>
-        <form id="bookingForm">
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre email" required>
-            <input type="tel" name="phone" placeholder="Téléphone">
-            <input type="date" name="date">
-            <textarea name="message" placeholder="Message (optionnel)" rows="3"></textarea>
-            <button type="submit" class="btn-primary">Envoyer</button>
-        </form>
+<body>
+    <!-- Hero -->
+    <div class="hero">
+        <h1>CityTrip Framework</h1>
+        <p>Le guide touristique mobile nouvelle génération, 100% algérien, enrichi d'audio, d'avis, de guides et bien plus.</p>
+        <a href="app.html" target="_blank">🎯 Voir la démo (Mostaganem)</a>
+        <a href="#contact" class="secondary">📧 Demander une version personnalisée</a>
     </div>
-</div>
-    <script src="places.js"></script>
-    <script src="main.js"></script>
-    <script src="booking.js"></script>
-    <script>
-        (function() {
-            var s = document.createElement('script');
-            s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-            s.async = true;
-            document.head.appendChild(s);
-        })();
-    </script>
+
+    <!-- Pourquoi CityTrip ? -->
+    <div class="section container">
+        <h2>Pourquoi CityTrip ?</h2>
+        <div class="features">
+            <div class="feature"><div class="icon">📴</div><h3>100% hors‑ligne</h3><p>Fonctionne sans internet une fois installé. Idéal pour les zones rurales.</p></div>
+            <div class="feature"><div class="icon">📱</div><h3>Progressive Web App</h3><p>S'installe en un clic sur l'écran d'accueil, sans store.</p></div>
+            <div class="feature"><div class="icon">🗺️</div><h3>Itinéraire instantané</h3><p>Ouvre Google Maps en un clic vers le lieu choisi.</p></div>
+            <div class="feature"><div class="icon">📸</div><h3>Galerie photos</h3><p>Chaque lieu possède sa propre galerie d'images défilante.</p></div>
+            <div class="feature"><div class="icon">🎧</div><h3>Audio immersif</h3><p>Écoutez l'histoire des sites racontée par des voix locales.</p></div>
+            <div class="feature"><div class="icon">⭐</div><h3>Avis & Notation</h3><p>Les visiteurs notent et commentent chaque lieu.</p></div>
+            <div class="feature"><div class="icon">🧭</div><h3>Guides & VTC</h3><p>Réservez un guide officiel ou un VTC directement depuis la fiche.</p></div>
+            <div class="feature"><div class="icon">📅</div><h3>Événements</h3><p>Consultez et proposez des événements locaux.</p></div>
+            <div class="feature"><div class="icon">🌙</div><h3>Mode sombre</h3><p>Basculez en mode sombre pour une lecture confortable.</p></div>
+            <div class="feature"><div class="icon">🌤️</div><h3>Météo intégrée</h3><p>La météo du jour pour votre ville.</p></div>
+            <div class="feature"><div class="icon">🔍</div><h3>Filtres avancés</h3><p>Filtrez les hébergements par étoiles, wifi, piscine.</p></div>
+            <div class="feature"><div class="icon">🌐</div><h3>Multilingue</h3><p>Arabe, français, anglais – extensible à volonté.</p></div>
+        </div>
+    </div>
+
+    <!-- Comment ça marche -->
+    <div class="section container">
+        <h2>Comment ça marche</h2>
+        <div class="steps">
+            <div class="step"><div class="step-number">1</div><h3>Choisissez votre ville</h3></div>
+            <div class="step"><div class="step-number">2</div><h3>Je crée le guide personnalisé</h3></div>
+            <div class="step"><div class="step-number">3</div><h3>Vous recevez un lien à partager</h3></div>
+            <div class="step"><div class="step-number">4</div><h3>Vos visiteurs l'installent en 1 clic</h3></div>
+        </div>
+    </div>
+
+    <!-- Espace professionnels -->
+    <div class="section container">
+        <h2>Vous êtes un professionnel ?</h2>
+        <p style="text-align:center; margin-bottom:30px; color:var(--text-light);">Ajoutez votre établissement ou votre location saisonnière gratuitement dans le guide de votre wilaya.</p>
+        <div class="pro-buttons">
+            <a href="proprietaires.html" class="pro-btn">🏠 Location saisonnière</a>
+            <a href="professionnels.html" class="pro-btn">🛍️ Artisan, Hébergeur, Restaurateur</a>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="section container" id="contact">
+        <h2>Contactez‑moi</h2>
+        <div class="contact-form">
+            <form action="https://formspree.io/f/XXXXXXXXXX" method="POST">
+                <input type="text" name="name" placeholder="Votre nom" required>
+                <input type="email" name="_replyto" placeholder="Votre email" required>
+                <input type="text" name="city" placeholder="Votre ville / organisation">
+                <textarea name="message" rows="4" placeholder="Décrivez votre besoin..."></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Développé avec passion par <a href="mailto:benaichakamelkat@gmail.com">BENAICHA KAMEL</a> • Mostaganem, Algérie</p>
+    </div>
 </body>
-                </html>
+</html>
