@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV – Kamel BENAICHA</title>
+    <style>
+        :root {
+            --primary: #1E88E5;
+            --secondary: #C8785A;
+            --text: #333;
+            --light: #666;
+            --border: #e0e0e0;
+            --bg: #f9f9f9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        @media print {
+            body { background: white; padding: 20px; }
+            .no-print { display: none; }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 6px;
+        }
+
+        header .title {
+            font-size: 1.15rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        header .contact {
+            font-size: 0.95rem;
+            color: var(--light);
+            margin-bottom: 8px;
+        }
+
+        header .links {
+            font-size: 0.9rem;
+        }
+
+        header .links a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        section {
+            margin-bottom: 28px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile p {
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--primary);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .skill-tag.soft {
+            background: var(--secondary);
+        }
+
+        .experience-item {
+            margin-bottom: 18px;
+            padding-left: 15px;
+            border-left: 3px solid var(--border);
+        }
+
+        .experience-item h3 {
+            font-size: 1.05rem;
+            color: #222;
+            margin-bottom: 2px;
+        }
+
+        .experience-item .meta {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .experience-item p, .experience-item ul {
+            font-size: 0.93rem;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 3px;
+        }
+
+        .project {
+            background: var(--bg);
+            padding: 15px 18px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .project h3 {
+            font-size: 1.05rem;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+
+        .project p {
+            font-size: 0.93rem;
+            margin-bottom: 6px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--light);
+        }
+
+        .btn-pdf {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#" onclick="window.print(); return false;" class="btn-pdf no-print">🖨️ Imprimer / Télécharger en PDF</a>
+
+    <header>
+        <h1>Kamel BENAICHA</h1>
+        <p class="title">Cadre supérieur & Créateur de solutions numériques pour le tourisme</p>
+        <p class="contact">
+            📧 benaichakamelkat@gmail.com &nbsp;|&nbsp; 📞 +213 771 70 35 36<br>
+            📍 Mostaganem, Algérie
+        </p>
+        <p class="links">
+            🌐 <a href="https://kamel772.github.io/algeriantrip/" target="_blank">Portfolio CityTrip</a>
+            &nbsp;|&nbsp;
+            🐙 <a href="https://github.com/kamel772/algeriantrip" target="_blank">GitHub</a>
+            &nbsp;|&nbsp;
+            💼 <a href="https://www.linkedin.com/in/kamel-benaicha" target="_blank">LinkedIn</a>
+        </p>
+    </header>
+
+    <!-- Profil -->
+    <section>
+        <h2>👤 Profil professionnel</h2>
+        <p>
+            Cadre supérieur disposant de plus de <strong>vingt ans d'expérience</strong> dans les domaines du commerce, de la finance, de la logistique, des ressources humaines et du conseil en investissement. 
+            Spécialisé dans les études technico-économiques, les études de marché, l'analyse financière et l'accompagnement des projets productifs, notamment dans les secteurs industriel, agricole et aquacole.
+        </p>
+        <p>
+            Depuis 2026, j'ai conçu et développé <strong>CityTrip</strong> et <strong>MostaTrip</strong>, une solution de guide touristique mobile (PWA) qui valorise le patrimoine algérien. 
+            Ce projet combine mon expertise en études de marché, ma connaissance du terrain et mes compétences techniques autodidactes pour offrir une solution numérique innovante, déjà fonctionnelle et commercialisée.
+        </p>
+    </section>
+
+    <!-- Compétences -->
+    <section>
+        <h2>🛠️ Compétences</h2>
+
+        <h3 style="font-size:1rem; margin-bottom:8px; color:var(--text);">Compétences métier</h3>
+        <div class="skills-grid" style="margin-bottom:14px;">
+            <span class="skill-tag soft">Études technico-économiques</span>
+            <span class="skill-tag soft">Analyse financière</span>
+            <span class="skill-tag soft">Études de marché</span>
+            <span class="skill-tag soft">Gestion commerciale</span>
+            <span class="skill-tag soft">Import-Export</span>
+            <span class="skill-tag soft">Logistique</span>
+            <span class="skill-tag soft">Ressources Humaines</span>
+            <span class="skill-tag soft">Conseil en investissement</span>
+            <span class="skill-tag soft">ISO 9001</span>
+            <span class="skill-tag soft">Marketing</span>
+        </div>
+
+        <h3 style="font-size:1rem; margin-bottom:8px; color:var(--text);">Compétences techniques</h3>
+        <div class="skills-grid">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">PWA</span>
+            <span class="skill-tag">Service Worker</span>
+            <span class="skill-tag">Offline-First</span>
+            <span class="skill-tag">Responsive Design</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">LocalStorage</span>
+            <span class="skill-tag">API REST</span>
+            <span class="skill-tag">Supabase</span>
+        </div>
+    </section>
+
+    <!-- Projet CityTrip -->
+    <section>
+        <h2>🚀 Projet innovant – CityTrip / MostaTrip (2026 – présent)</h2>
+
+        <div class="project">
+            <h3>🏛️ CityTrip – Framework PWA de guide touristique</h3>
+            <p>Template d'application web progressive (PWA) conçu pour créer un guide touristique complet pour n'importe quelle ville. 
+            Fonctionne 100 % hors-ligne, multilingue, 10 catégories, système d'avis, audio-guide, mode sombre, météo intégrée, filtres avancés, formulaire de réservation. 
+            Déployé en production pour Mostaganem et vendu sur Codester (marketplace internationale).</p>
+            <p><strong>Technologies :</strong> HTML, CSS, JavaScript, PWA, Service Worker, LocalStorage, API Open-Meteo</p>
+            <p>🔗 <a href="https://kamel772.github.io/algeriantrip/app.html" target="_blank">Démo MostaTrip</a></p>
+        </div>
+
+        <div class="project">
+            <h3>📍 MostaTrip – Guide touristique de Mostaganem</h3>
+            <p>Première déclinaison du framework CityTrip, couvrant plus de 50 lieux (sites historiques, plages, hébergements, artisans, administrations, etc.). 
+            Intègre des histoires audio racontées par des voix locales, un système d'avis, des fiches enrichies et une interface trilingue. 
+            Candidature en cours au Hospitality & Tourism Lab du GHTT.</p>
+        </div>
+    </section>
+
+    <!-- Expérience professionnelle -->
+    <section>
+        <h2>💼 Expérience professionnelle (20+ ans)</h2>
+
+        <div class="experience-item">
+            <h3>Gestionnaire des Ressources Humaines</h3>
+            <p class="meta">GPSA | Novembre 2023 – Novembre 2025</p>
+            <ul><li>Gestion administrative des ressources humaines, suivi des contrats, conformité réglementaire.</li></ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Superviseur des Ventes Directes</h3>
+            <p class="meta">CASPM DAHRA | Novembre 2022 – Août 2023</p>
+            <ul><li>Supervision des ventes en gros et en distribution directe sur la région Ouest.</li></ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Chargé d'Études et Conseil en Investissement</h3>
+            <p class="meta">Cabinet Taher Bouzid | Novembre 2013 – Octobre 2014</p>
+            <ul><li>Études technico-économiques, analyses financières, études de marché, accompagnement de porteurs de projets.</li></ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Responsable Commercial</h3>
+            <p class="meta">SARL Fertiplant | Août 2011 – Janvier 2013</p>
+            <ul><li>Prospection des marchés nationaux et internationaux, gestion complète des opérations d'importation (CREDOC, transit, douanes).</li></ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Responsable Commercial – Cadre Commercial – Chargé des Approvisionnements</h3>
+            <p class="meta">CEVITAL, SOACHLORE, Costa Almeria, AgroSenouci, Universal Transit, GBA | 2003 – 2011</p>
+            <ul>
+                <li>Gestion de portefeuilles clients grands comptes, élaboration de manuels ISO 9001.</li>
+                <li>Prospection fournisseurs, gestion des achats, suivi des contrats de sous-traitance.</li>
+                <li>Supervision d'opérations d'importation de produits périssables, gestion logistique et commerciale.</li>
+                <li>Tenue de comptabilité générale, élaboration d'états financiers, contrôle budgétaire.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Formation -->
+    <section>
+        <h2>🎓 Formation</h2>
+        <ul>
+            <li><strong>Licence en Sciences Commerciales (Marketing)</strong> – Université Abdel Hamid Ibn Badis, Mostaganem (1994 – 2000)</li>
+            <li><strong>Certification ISO 9001</strong> (versions 2000 à 2016) – SOACHLORE (2003)</li>
+            <li><strong>Techniques bancaires</strong> – Société Générale Algérie (2009)</li>
+            <li><strong>Artisanat : extraction d'huiles végétales et essentielles & fabrication du savon à froid</strong> (2019)</li>
+            <li><strong>Développement Web & Mobile</strong> – Auto-formation (2025 – 2026)</li>
+        </ul>
+    </section>
+
+    <!-- Langues -->
+    <section>
+        <h2>🌍 Langues</h2>
+        <ul>
+            <li><strong>Arabe</strong> – Langue maternelle</li>
+            <li><strong>Français</strong> – Courant (écrit et oral)</li>
+            <li><strong>Anglais</strong> – Notions professionnelles</li>
+        </ul>
+    </section>
+
+    <!-- Certifications & PI -->
+    <section>
+        <h2>📜 Certifications & Propriété Intellectuelle</h2>
+        <ul>
+            <li>Licence Creative Commons CC BY-NC 4.0 pour le code source de CityTrip</li>
+            <li>Dépôt public GitHub comme preuve d'antériorité</li>
+            <li>Marques d'usage : CityTrip, MostaTrip</li>
+            <li>Base de données des lieux protégée par le droit d'auteur</li>
+        </ul>
+    </section>
+
+    <div class="footer">
+        <p>CV disponible en ligne : <strong>https://kamel772.github.io/algeriantrip/cv.html</strong></p>
+    </div>
+
+</body>
+</html>
