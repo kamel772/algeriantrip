@@ -1,28 +1,28 @@
-const CACHE_NAME = 'mostatrip-v1';
+const CACHE_NAME = 'mostatrip-v3';
 
-// Fichiers à mettre en cache pour le mode hors ligne
 const urlsToCache = [
-  './',
-  './index.html',
+  './app.html',
   './style.css',
   './main.js',
   './places.js',
   './booking.js',
-  './manifest.json',
-  './images/placeholder.jpg',
-  './images/icon-192.png',
-  './images/icon-512.png'
+  './manifest.json'
 ];
 
-// Installation : mise en cache des ressources
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => {
+      return Promise.allSettled(
+        urlsToCache.map(url => {
+          return cache.add(url).catch(err => {
+            console.warn('Échec de mise en cache :', url, err);
+          });
+        })
+      );
+    })
   );
 });
 
-// Activation : nettoyage des anciens caches
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames => {
@@ -34,10 +34,12 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Stratégie Cache First : on sert le cache si dispo, sinon réseau
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    }).catch(() => {
+      return caches.match('./app.html');
+    })
   );
 });
