@@ -1,10 +1,11 @@
 {
-  "name": "MostaTrip",
+  "name": "MostaTrip – Guide de Mostaganem",
   "short_name": "MostaTrip",
+  "description": "Guide touristique hors‑ligne de Mostaganem",
   "start_url": "./app.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#1E88E5",
+  "theme_color": "#C8785A",
   "icons": [
     {
       "src": "images/icon-192.png",
