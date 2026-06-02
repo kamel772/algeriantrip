@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
-<script data-goatcounter="https://kamel772.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>   
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MostaTrip • Mostaganem</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#1E88E5">
+    <meta name="theme-color" content="#C8785A">
 </head>
-<body class="theme-chic-plage">
+<body class="theme-boho-plage">
     <div class="app-container">
         <header class="header">
             <div class="lang-selector">
@@ -19,8 +17,14 @@
                 <button data-lang="en">EN</button>
             </div>
             <h1 id="appTitle">MostaTrip</h1>
-            <button id="darkModeToggle" style="background:rgba(255,255,255,0.2); border:none; color:white; font-size:1.2rem; padding:4px 10px; border-radius:30px; cursor:pointer; margin-right:6px;">🌙</button>
-            <button class="filter-toggle" id="filterToggle">☰</button>
+            <div style="display:flex; align-items:center;">
+                <button id="darkModeToggle" class="dark-toggle" title="Mode sombre">
+                    <svg id="darkIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="filter-toggle" id="filterToggle">☰</button>
+            </div>
         </header>
 
         <div class="search-bar">
@@ -51,16 +55,16 @@
         </div>
 
         <div class="category-filters" id="categoryFilters">
-            <button class="cat-btn" data-cat="site">Sites</button>
-            <button class="cat-btn" data-cat="hebergement">Hébergements</button>
-            <button class="cat-btn" data-cat="artisan">Artisans</button>
-            <button class="cat-btn" data-cat="loisirs">Loisirs</button>
-            <button class="cat-btn" data-cat="culture">Culture</button>
-            <button class="cat-btn" data-cat="nature">🌲 Nature</button>
-            <button class="cat-btn" data-cat="restaurant">Restaurants</button>
-            <button class="cat-btn" data-cat="administration">Administrations</button>
-            <button class="cat-btn" data-cat="services">Services</button>
-            <button class="cat-btn" data-cat="banque">Banques</button>
+            <button class="cat-btn active" data-cat="site" title="Sites historiques">🏛️</button>
+            <button class="cat-btn" data-cat="hebergement" title="Hébergements">🛏️</button>
+            <button class="cat-btn" data-cat="artisan" title="Artisans">🎨</button>
+            <button class="cat-btn" data-cat="loisirs" title="Loisirs">🎢</button>
+            <button class="cat-btn" data-cat="culture" title="Culture">🎭</button>
+            <button class="cat-btn" data-cat="nature" title="Nature">🌲</button>
+            <button class="cat-btn" data-cat="restaurant" title="Restaurants">🍽️</button>
+            <button class="cat-btn" data-cat="administration" title="Administrations">🏢</button>
+            <button class="cat-btn" data-cat="services" title="Services">🛡️</button>
+            <button class="cat-btn" data-cat="banque" title="Banques">🏦</button>
         </div>
 
         <div class="places-list" id="placesList"></div>
@@ -83,22 +87,27 @@
         </div>
 
         <div class="modal" id="bookingModal">
-    <div class="modal-content">
-        <span class="close-modal" id="closeBookingModal">&times;</span>
-        <h2>Réservation pour <span id="bookingPlaceName"></span></h2>
-        <form id="bookingForm">
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre email" required>
-            <input type="tel" name="phone" placeholder="Téléphone">
-            <input type="date" name="date">
-            <textarea name="message" placeholder="Message (optionnel)" rows="3"></textarea>
-            <button type="submit" class="btn-primary">Envoyer</button>
-        </form>
+            <div class="modal-content">
+                <span class="close-modal" id="closeBookingModal">&times;</span>
+                <h2>Réservation pour <span id="bookingPlaceName"></span></h2>
+                <form id="bookingForm">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
+                    <input type="tel" name="phone" placeholder="Téléphone">
+                    <input type="date" name="date">
+                    <textarea name="message" placeholder="Message (optionnel)" rows="3"></textarea>
+                    <button type="submit" class="btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
+
+    <!-- Chargement des scripts métier -->
     <script src="places.js"></script>
     <script src="main.js"></script>
     <script src="booking.js"></script>
+
+    <!-- EmailJS (chargement asynchrone) -->
     <script>
         (function() {
             var s = document.createElement('script');
@@ -107,5 +116,13 @@
             document.head.appendChild(s);
         })();
     </script>
-</body>
-</html>
+
+    <!-- Enregistrement du Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(function(registration) {
+                    console.log('✅ Service Worker enregistré avec succès :', registration.scope);
+                })
+                .catch(function(error) {
+                    console.w
