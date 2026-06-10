@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityTrip Insights – Tableau de bord</title>
+    <style>
+        :root {
+            --primary: #C8785A;
+            --secondary: #E0B28A;
+            --accent: #A8C0A3;
+            --text: #4E3E33;
+            --light: #9F8B7A;
+            --border: #EAE0D4;
+            --bg: #F5EFE6;
+            --card: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); padding: 20px; max-width: 800px; margin: 0 auto; }
+        h1 { color: var(--primary); margin-bottom: 20px; }
+        .card { background: var(--card); border-radius: 16px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .card h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; }
+        .number { font-size: 2rem; font-weight: bold; color: var(--primary); }
+        .bar-container { display: flex; align-items: center; margin: 5px 0; }
+        .bar-label { width: 150px; font-size: 0.9rem; }
+        .bar { height: 20px; background: var(--primary); border-radius: 10px; transition: width 0.3s; }
+        .bar-value { margin-left: 10px; font-size: 0.9rem; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { background: var(--primary); color: white; }
+    </style>
+</head>
+<body>
+    <h1>📊 CityTrip Insights – Tableau de bord</h1>
+
+    <div class="card">
+        <h2>📈 Indicateurs globaux</h2>
+        <p>Nombre total de vues : <span class="number" id="totalViews">0</span></p>
+        <p>Nombre total d'avis : <span class="number" id="totalReviews">0</span></p>
+        <p>Note moyenne globale : <span class="number" id="globalRating">0</span> / 5</p>
+    </div>
+
+    <div class="card">
+        <h2>🏆 Top 10 des lieux les plus consultés</h2>
+        <div id="topPlaces"></div>
+    </div>
+
+    <div class="card">
+        <h2>📅 Visites des 7 derniers jours</h2>
+        <div id="last7Days"></div>
+    </div>
+
+    <script>
+        const stats = JSON.parse(localStorage.getItem('mostatrip_stats') || '{}');
+        const history = JSON.parse(localStorage.getItem('mostatrip_history') || '[]');
+        const reviewsData = {};
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key.startsWith('reviews_')) {
+                const placeId = key.replace('reviews_', '');
+                reviewsData[placeId] = JSON.parse(localStorage.getItem(key) || '[]');
+            }
+        }
+
+        let totalViews = 0;
+        for (const count of Object.values(stats)) { totalViews += count; }
+        let totalReviews = 0, totalRatingSum = 0, totalRatingCount = 0;
+        for (const reviews of Object.values(reviewsData)) {
+            totalReviews += reviews.length;
+            for (const r of reviews) { totalRatingSum += r.rating; totalRatingCount++; }
+        }
+        const globalRating = totalRatingCount > 0 ? (totalRatingSum / totalRatingCount).toFixed(1) : 0;
+
+        document.getElementById('totalViews').textContent = totalViews;
+        document.getElementById('totalReviews').textContent = totalReviews;
+        document.getElementById('globalRating').textContent = globalRating;
+
+        const sortedPlaces = Object.entries(stats).sort((a, b) => b[1] - a[1]).slice(0, 10);
+        const maxViews = sortedPlaces.length > 0 ? sortedPlaces[0][1] : 1;
+        let topPlacesHTML = '';
+        for (const [id, count] of sortedPlaces) {
+            const widthPercent = (count / maxViews) * 100;
+            let placeName = `Lieu #${id}`;
+            if (typeof PLACES !== 'undefined') {
+                const place = PLACES.find(p => p.id == id);
+                if (place) placeName = place.name;
+            }
+            topPlacesHTML += `<div class="bar-container"><div class="bar-label">${placeName}</div><div class="bar" style="width:${widthPercent}%;"></div><div class="bar-value">${count}</div></div>`;
+        }
+        document.getElementById('topPlaces').innerHTML = topPlacesHTML || '<p>Aucune donnée.</p>';
+
+        const days = [];
+        const now = Date.now();
+        for (let i = 6; i >= 0; i--) {
+            const dayStart = new Date(now - i * 24 * 60 * 60 * 1000).setHours(0,0,0,0);
+            const dayEnd = dayStart + 24 * 60 * 60 * 1000;
+            const count = history.filter(e => e.time >= dayStart && e.time < dayEnd).length;
+            const dateStr = new Date(dayStart).toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric' });
+            days.push({ label: dateStr, count });
+        }
+        const maxDayViews = Math.max(...days.map(d => d.count), 1);
+        let daysHTML = '';
+        for (const day of days) {
+            const widthPercent = (day.count / maxDayViews) * 100;
+            daysHTML += `<div class="bar-container"><div class="bar-label">${day.label}</div><div class="bar" style="width:${widthPercent}%;"></div><div class="bar-value">${day.count}</div></div>`;
+        }
+        document.getElementById('last7Days').innerHTML = daysHTML;
+    </script>
+</body>
+</html>
