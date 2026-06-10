@@ -44,9 +44,18 @@ const PLACEHOLDER_IMG = (typeof PLACEHOLDER_IMAGE !== 'undefined') ? PLACEHOLDER
 
 function incrementView(placeId) {
     try {
+        // Statistiques globales (nombre total de vues par lieu)
         const stats = JSON.parse(localStorage.getItem('mostatrip_stats') || '{}');
         stats[placeId] = (stats[placeId] || 0) + 1;
         localStorage.setItem('mostatrip_stats', JSON.stringify(stats));
+
+        // Historique des visites (pour les graphiques d'évolution)
+        const history = JSON.parse(localStorage.getItem('mostatrip_history') || '[]');
+        history.push({ id: placeId, time: Date.now() });
+        // Garder seulement les 30 derniers jours
+        const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+        const recentHistory = history.filter(entry => entry.time > thirtyDaysAgo);
+        localStorage.setItem('mostatrip_history', JSON.stringify(recentHistory));
     } catch(e) {}
 }
 
