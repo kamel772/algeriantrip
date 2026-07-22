@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#C8785A">
+
+    <!-- ===== COMPTEUR DE VISITES GOATCOUNTER ===== -->
+    <script data-goatcounter="https://kamel772.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
 </head>
 <body class="theme-boho-plage">
     <div class="app-container">
@@ -126,4 +130,9 @@
                     console.log('✅ Service Worker enregistré avec succès :', registration.scope);
                 })
                 .catch(function(error) {
-                    console.w
+                    console.warn('⚠️ Service Worker non enregistré :', error);
+                });
+        }
+    </script>
+</body>
+</html>
